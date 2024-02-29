@@ -23,6 +23,12 @@ transformBtn.addEventListener("click", () => {
 
   for (const char of originalStr) {
     const charUnicode = char.charCodeAt(0);
+
+    if (ignoreStr.includes(char)) {
+      symbolStr += String.fromCharCode(charUnicode);
+      continue;
+    }
+
     const glyphIndex = glyphIndexMap[charUnicode];
     const glyph = font.glyphs.get(glyphIndex);
 
@@ -30,7 +36,7 @@ transformBtn.addEventListener("click", () => {
       (unicode) => unicode !== charUnicode
     );
 
-    if (_.isEmpty(symbolChars) || ignoreStr.includes(char)) {
+    if (_.isEmpty(symbolChars)) {
       symbolStr += String.fromCharCode(charUnicode);
     } else {
       symbolStr += String.fromCharCode(symbolChars.pop());
