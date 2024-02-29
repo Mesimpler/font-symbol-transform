@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>font-symbol-transform</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/opentype.js/1.3.4/opentype.min.js"></script>
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-wrap container">
+        <h1>font-symbol-transform</h1>
+        <span>github</span>
+      </div>
+    </header>
+    <div class="container">
+      <input
+        class="font-upload"
+        type="file"
+        id="font-upload"
+        accept=".ttf, .woff, .otf"
+      />
+
+      <div class="main-wrap">
+        <textarea class="textarea" id="original-textarea"></textarea>
+        <button id="transform-btn">> 转换 ></button>
+        <textarea class="textarea" id="transform-textarea"></textarea>
+      </div>
+      <div class="ignore-input-warp">
+        <label for="ignoreChar">忽略转换字符：</label>
+        <textarea id="ignore-textarea" name="ignoreChar"></textarea>
+      </div>
+      <div class="description">
+        <p>
+          汉化某些galgame游戏时,游戏封包时不支持某些中文字符,这种情况一般会使用字体替换的方式去解决。<br />
+          将游戏支持的不常用字符通过字体文件改写其映射关系从而显示不支持的字符,让其正常封包。(LiveMarker
+          的 CP932 编码...)
+          <br /><br />
+          本项目可以将正常文本通过提供的字体文件转化成对应的映射文本。(即字符含有多个映射时,会优先使用非自身映射)
+          <br /><br />
+          <!-- <button>导出转换关系表</button> -->
+        </p>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-warp container">
+        <ul></ul>
+        <p>Copyright © 2024 mesimpler.</p>
+      </div>
+    </footer>
+  </body>
+</html>
